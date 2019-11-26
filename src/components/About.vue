@@ -2,6 +2,20 @@
     <section class='about'>
         <p class='name'>Bozhidar Kabzamalov</p>
         <p class='title'>Web Developer</p>
+        <div class='links'>
+            <a href=''>
+                <img src="@/assets/cv.png" alt="GitHub">
+                <p>CV</p>
+            </a>
+            <a href='https://github.com/BozhidarKabzamalov'>
+                <img src="@/assets/github.svg" alt="GitHub">
+                <p>GitHub</p>
+            </a>
+            <a href="mailto: KabzamalovBozhidar@gmail.com">
+                <img src="@/assets/at.svg" alt="Email">
+                <p>KabzamalovBozhidar@Gmail.com</p>
+            </a>
+        </div>
     </section>
 </template>
 
@@ -50,7 +64,58 @@ export default {
 .title {
     font-size: 4em;
     font-weight: 500;
-    margin-bottom: 30px;
     text-align: center;
+    margin-bottom: 20px;
+}
+.links {
+    display: flex;
+    font-size: 1.1em;
+    font-weight: 500;
+    text-align: center;
+}
+.links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 30px;
+    padding: 10px 0 10px 0;
+    position: relative;
+}
+.links a:after{
+    content: '';
+    position: absolute;
+    width: 0; height: 3px;
+    display: block;
+    margin-top: 25px;
+    right: 0;
+    background: #fff;
+    transition: width .2s ease;
+    -webkit-transition: width .3s ease;
+}
+
+.links a:hover:after{
+    width: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+.links a img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    opacity: 0.8;
+}
+
+@media (max-width: 1280px) {
+    .name {
+        font-size: 3em;
+    }
+    .title {
+        font-size: 2em;
+    }
+}
+@media (max-width: 900px) {
+    .links {
+        flex-direction: column;
+    }
 }
 </style>

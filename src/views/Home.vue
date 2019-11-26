@@ -1,11 +1,12 @@
 <template>
     <main>
+        <Navigation></Navigation>
         <About></About>
         <div class="wrapper">
             <Skills></Skills>
             <Projects></Projects>
-            <Contact></Contact>
         </div>
+        <Footer></Footer>
     </main>
 </template>
 
@@ -13,14 +14,16 @@
 import About from '../components/About.vue';
 import Skills from '../components/Skills.vue';
 import Projects from '../components/Projects.vue';
-import Contact from '../components/Contact.vue';
+import Navigation from '../components/Navigation.vue';
+import Footer from '../components/Footer.vue';
 
     export default {
         components: {
             About,
             Skills,
             Projects,
-            Contact
+            Navigation,
+            Footer
         },
         methods: {
             setAboutHeight(){
