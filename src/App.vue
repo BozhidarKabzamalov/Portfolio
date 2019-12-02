@@ -16,9 +16,9 @@
     }
     body {
         background-color: #f1f1f1;
-        font-family: 'Roboto', 'Helvetica', 'Helvetica Neue', 'Arial', sans-serif;
         background-image: url("./assets/topography.svg");
         background-attachment: fixed;
+        font-family: 'Roboto', 'Helvetica', 'Helvetica Neue', 'Arial', sans-serif;
     }
     section {
         min-height: 100vh;

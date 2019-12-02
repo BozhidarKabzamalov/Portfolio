@@ -55,6 +55,11 @@
                     <li>Store the API responses inside the database</li>
                     <li>Obfuscate Riot Games's API key</li>
                 </ul>
+                <p class='bold'>Overcome challenges:</p>
+                <ul>
+                    <li>Working with a complex third party API which has considerable amount of endpoints and thousands of properties</li>
+                    <li>Designing a simple, intuitive and easy to use user interface for a complex API</li>
+                </ul>
             </div>
             <div class="image-container">
                 <img class='project-image' src="@/assets/leagueofstats/lol2.jpg" alt="Landing Page">

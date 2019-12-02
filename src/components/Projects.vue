@@ -1,5 +1,5 @@
 <template lang="html">
-        <div class='projects'>
+        <section class='projects'>
             <h1 class='section-header'>PROJECTS</h1>
             <div class="projects-container">
                 <div class="project">
@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-    </div>
+    </section>
 
 </template>
 
