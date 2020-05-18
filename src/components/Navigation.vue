@@ -45,12 +45,18 @@ export default {
 <style lang="css" scoped>
 .navigation {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     position: fixed;
     right: 5%;
     top: 50%;
     transform: translateY(-50%);
     text-align: right;
+    border-radius: 30px;
+    background-color: #ffffff;
+    width: 40px;
+    padding: 30px 0;
 }
 .element {
     width: 20px;
@@ -58,14 +64,23 @@ export default {
     border-radius: 50%;
     margin-bottom: 30px;
     transition: all .1s linear;
-    border: 5px solid rgba(0, 0, 0, 0.5);
+    background-color: #e3e6ea;
+    background-color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
+.element:last-child {
+    margin-bottom: 0;
+}
 .element:hover {
-    transform: scale(1.2)
+    transform: scale(1.1);
 }
 .active {
-    border-color: rgba(0,0,0,0);
-    background-color: rgba(0, 0, 0, 0.5)
+    background-image: linear-gradient(-45deg, #57cfb0, #2ab5d3);
+}
+
+@media (max-width: 900px) {
+    .navigation {
+        display: none;
+    }
 }
 </style>

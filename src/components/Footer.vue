@@ -35,7 +35,7 @@ export default {
 <style lang="css" scoped>
 .footer {
     width: 100%;
-    background-color: rgba(218, 213, 234, 0.8);
+    background-color: #cccccc;
 }
 .links {
     display: flex;
@@ -48,34 +48,42 @@ export default {
     justify-content: center;
     align-items: center;
     margin: 0px 30px 0px 30px;
-    padding: 15px 0 15px 0;
+    padding: 5px 0 5px 0;
     position: relative;
 }
-.links a:after{
+.links a p {
+    font-weight: 500;
+}
+.links a:after {
+    background: rgba(0, 0, 0, 0.8);
     content: '';
     position: absolute;
-    width: 0; height: 2px;
+    width: 0;
+    height: 3px;
     display: block;
-    margin-top: 20px;
-    right: 0;
-    background: #fff;
-    transition: width .2s ease;
-    -webkit-transition: width .3s ease;
+    margin-top: 25px;
+    left: 0;
+    right: 100%;
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
 }
 .links a:hover:after{
     width: 100%;
     left: 0;
-    background: rgba(0, 0, 0, 0.8);
+    right: 0;
 }
 .links a img {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     margin-right: 10px;
     opacity: 0.8;
 }
 @media (max-width: 710px) {
     .links {
         flex-direction: column;
+    }
+    .links a {
+        padding: 15px 0 15px 0;
     }
 }
 </style>

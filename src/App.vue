@@ -31,7 +31,11 @@
     }
     .wrapper {
         width: 70%;
+        max-width: 1240px;
         margin: 0 auto;
+    }
+    .cursor {
+        cursor: pointer;
     }
     @media (max-width: 900px) {
         .wrapper {

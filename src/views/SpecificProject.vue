@@ -2,34 +2,92 @@
     <div>
         <main class='wrapper'>
             <div class='project-info'>
-                <h1 class='project-title'>Travel Diary</h1>
-                <p class='project-description'>
-                    Travel diary is a single-page application which allows its users to pinpoint cities on a Google map,
-                    and in return, receive a list of recommended places, vistas and activities to check out in the selected city.
-                </p>
+                <h1 class='project-title'>{{ project.title }}</h1>
+                <p class='project-description'>{{ project.description }}</p>
                 <p class='project-skills'>Languages, Frameworks & Libraries</p>
                 <div class='skills-container'>
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/html.png" alt="HTML5">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/css.png" alt="CSS3">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/js.png" alt="JavaScript">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/vue.png" alt="Vue.js">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/php.png" alt="PHP">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/laravel.png" alt="Laravel">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/mysql.png" alt="MySQL">
-                    </div>
+                    <img v-for='technology in project.technologies' @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' :src='require("@/assets/technologies/" + technology.name + "." + technology.extension)' :alt="technology.alt">
+                </div>
                 <div class="buttons flex">
-                    <a class='live-site' href="http://diary.kabzamalov.com/"><img src="@/assets/external.svg" alt="Visit Site">Visit Site</a>
-                    <a class='github' href="https://github.com/BozhidarKabzamalov/Travel-Diary-Frontend"><img src="@/assets/github-white.svg" alt="GitHub">Front-end Repository</a>
-                    <a class='github' href="https://github.com/BozhidarKabzamalov/Travel-Diary-Backend"><img src="@/assets/github-white.svg" alt="GitHub">Back-end Repository</a>
+                    <a class='live-site' :href="project.url" target="_blank"><img src="@/assets/external.svg" alt="Visit Site">Visit Site</a>
+                    <a v-for='repo in project.repository' class='github' href="https://github.com/BozhidarKabzamalov/League-Of-Legends-Frontend" target="_blank">
+                        <img src="@/assets/github-white.svg" alt="GitHub">{{ repo.type }} Repository
+                    </a>
                 </div>
                 <div class='caption' v-if='hover' v-bind:style='{ "top": eOffsetTop + "px", "left": eOffsetLeft + "px" }'>
-                        <p>{{ alt }}</p>
-                    </div>
+                    <p>{{ alt }}</p>
+                </div>
             </div>
             <div class="image-container">
-                <img class='project-image' src="@/assets/projects/traveldiary/1.png" alt="Landing Page">
+                <img v-for='image in project.images' class='project-image' :src='require("@/assets/projects/" + image.folder + "/" + image.name + "." + image.extension)' alt="Landing Page">
             </div>
-            <div class="project-specifications">
+            <div v-if='project.title == "ArtShare"' class="project-specifications">
+                <p>
+                    The application utilizes the Model-View-Controller architecture which separates the application into three parts - model, view and controller.
+                    The MVC architecture is employed because it provides a large number of benefits like:
+                </p>
+                <ul>
+                    <li>Separation of concerns</li>
+                    <li>Easy maintenance thanks to the separation of concerns</li>
+                    <li>Supports test-driven development</li>
+                    <li>Fast development process</li>
+                    <li>Possibility for parallel work on different modules</li>
+                </ul>
+                <p class='bold'>Front-end responsibilities:</p>
+                <ul>
+                    <li>Neatly present data to the users</li>
+                    <li>Add interactivity to the application through JavaScript</li>
+                    <li>Make AJAX requests in order to send and retrieve data from the back-end</li>
+                </ul>
+                <p class='bold'>Back-end responsibilities:</p>
+                <ul>
+                    <li>Create, read, update and delete data</li>
+                    <li>Store information inside the database</li>
+                    <li>Execute MySQL queries</li>
+                    <li>Deal with user authentication and user roles</li>
+                    <li>Validate data</li>
+                    <li>Handle file uploads</li>
+                    <li>Deal with image handling and manipulation</li>
+                    <li>Handle routing</li>
+                </ul>
+            </div>
+            <div v-else-if='project.title == "Legends Of Runeterra"' class="project-specifications">
+                <p class='project-description'>
+                    The application consists of a Vue.js front-end which draws information from a JSON file and then displays the information in a user-friendly manner.
+                </p>
+                <p>
+                    The lazy loading design pattern is utilized in order to defer the rendering of the images until they are in the viewport of the user, and in return reduce the website's bandwidth usage.
+                    Moreover, all images are provided in WebP format with fallback to PNG format on browsers that do not support WebP.
+                </p>
+                <p>The application is completely responsive as a result of the use of CSS3 media queries.</p>
+            </div>
+            <div v-else-if='project.title == "League Of Stats"' class="project-specifications">
+                <p class='project-description'>
+                    The application consists of a Vue.js front-end and PHP (Laravel) back-end
+                    which are separated from each other. Separating the front-end from the
+                    back-end has many advantages such as:
+                </p>
+                <ul>
+                    <li>Readability</li>
+                    <li>Flexibility</li>
+                    <li>Scalability</li>
+                    <li>Easy maintenance</li>
+                    <li>Modularity</li>
+                    <li>Easier deployment</li>
+                </ul>
+                <p class='bold'>Front-end responsibilities:</p>
+                <ul>
+                    <li>Make requests to the back-end for information about League Of Legends users and matches</li>
+                    <li>Display all the information in an understandable manner</li>
+                </ul>
+                <p class='bold'>Back-end responsibilities:</p>
+                <ul>
+                    <li>Make requests to Riot Games's API and then return the responses to the front-end</li>
+                    <li>Store the API responses inside the database</li>
+                    <li>Obfuscate Riot Games's API key</li>
+                </ul>
+            </div>
+            <div v-else-if='project.title == "Travel Diary"' class="project-specifications">
                 <p class='project-description'>
                     The application consists of a Vue.js front-end and PHP (Laravel) back-end
                     which are separated from each other. Separating the front-end from the
@@ -60,12 +118,6 @@
                     <li>Designing a simple, intuitive and easy to use user interface for a complex API</li>
                 </ul>
             </div>
-            <div class="image-container">
-                <img class='project-image' src="@/assets/projects/traveldiary/2.png" alt="Landing Page">
-            </div>
-            <div class="image-container">
-                <img class='project-image' src="@/assets/projects/traveldiary/3.png" alt="Landing Page">
-            </div>
         </main>
         <Footer></Footer>
     </div>
@@ -73,13 +125,16 @@
 
 <script>
 import Footer from '../components/Footer.vue';
+import projectsJson from '../assets/projects.json'
 
 export default {
+    props: ['project'],
     components: {
         Footer
     },
     data(){
         return {
+            projects: projectsJson,
             hover: false,
             eOffsetTop: null,
             eOffsetLeft: null,

@@ -2,10 +2,9 @@
     <div>
         <main class='wrapper'>
             <div class='project-info'>
-                <h1 class='project-title'>Travel Diary</h1>
+                <h1 class='project-title'>Legends of Runeterra</h1>
                 <p class='project-description'>
-                    Travel diary is a single-page application which allows its users to pinpoint cities on a Google map,
-                    and in return, receive a list of recommended places, vistas and activities to check out in the selected city.
+                    Single-page application which allows Legends of Runeterra users to look up and filter cards based on specific criteria.
                 </p>
                 <p class='project-skills'>Languages, Frameworks & Libraries</p>
                 <div class='skills-container'>
@@ -13,58 +12,30 @@
                         <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/css.png" alt="CSS3">
                         <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/js.png" alt="JavaScript">
                         <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/vue.png" alt="Vue.js">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/php.png" alt="PHP">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/laravel.png" alt="Laravel">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/mysql.png" alt="MySQL">
                     </div>
                 <div class="buttons flex">
-                    <a class='live-site' href="http://diary.kabzamalov.com/"><img src="@/assets/external.svg" alt="Visit Site">Visit Site</a>
-                    <a class='github' href="https://github.com/BozhidarKabzamalov/Travel-Diary-Frontend"><img src="@/assets/github-white.svg" alt="GitHub">Front-end Repository</a>
-                    <a class='github' href="https://github.com/BozhidarKabzamalov/Travel-Diary-Backend"><img src="@/assets/github-white.svg" alt="GitHub">Back-end Repository</a>
+                    <a class='live-site' href="http://runeterra.kabzamalov.com"><img src="@/assets/external.svg" alt="Visit Site">Visit Site</a>
+                    <a class='github' href="https://github.com/BozhidarKabzamalov/Legends-Of-Runeterra"><img src="@/assets/github-white.svg" alt="GitHub">Repository</a>
                 </div>
                 <div class='caption' v-if='hover' v-bind:style='{ "top": eOffsetTop + "px", "left": eOffsetLeft + "px" }'>
                         <p>{{ alt }}</p>
                     </div>
             </div>
             <div class="image-container">
-                <img class='project-image' src="@/assets/projects/traveldiary/1.png" alt="Landing Page">
+                <img class='project-image' src="@/assets/projects/runeterra/1.png" alt="Landing Page">
             </div>
             <div class="project-specifications">
                 <p class='project-description'>
-                    The application consists of a Vue.js front-end and PHP (Laravel) back-end
-                    which are separated from each other. Separating the front-end from the
-                    back-end has many advantages such as:
+                    The application consists of a Vue.js front-end which draws information from a JSON file and then displays the information in a user-friendly manner.
                 </p>
-                <ul>
-                    <li>Readability</li>
-                    <li>Flexibility</li>
-                    <li>Scalability</li>
-                    <li>Easy maintenance</li>
-                    <li>Modularity</li>
-                    <li>Easier deployment</li>
-                </ul>
-                <p class='bold'>Front-end responsibilities:</p>
-                <ul>
-                    <li>Make requests to the back-end for information about League Of Legends users and matches</li>
-                    <li>Display all the information in an understandable manner</li>
-                </ul>
-                <p class='bold'>Back-end responsibilities:</p>
-                <ul>
-                    <li>Make requests to Riot Games's API and then return the responses to the front-end</li>
-                    <li>Store the API responses inside the database</li>
-                    <li>Obfuscate Riot Games's API key</li>
-                </ul>
-                <p class='bold'>Overcome challenges:</p>
-                <ul>
-                    <li>Working with a complex third party API which has considerable amount of endpoints and thousands of properties</li>
-                    <li>Designing a simple, intuitive and easy to use user interface for a complex API</li>
-                </ul>
+                <p>
+                    The lazy loading design pattern is utilized in order to defer the rendering of the images until they are in the viewport of the user, and in return reduce the website's bandwidth usage.
+                    Moreover, all images are provided in WebP format with fallback to PNG format on browsers that do not support WebP.
+                </p>
+                <p>The application is completely responsive as a result of the use of CSS3 media queries.</p>
             </div>
             <div class="image-container">
-                <img class='project-image' src="@/assets/projects/traveldiary/2.png" alt="Landing Page">
-            </div>
-            <div class="image-container">
-                <img class='project-image' src="@/assets/projects/traveldiary/3.png" alt="Landing Page">
+                <img class='project-image' src="@/assets/projects/runeterra/1.png" alt="Landing Page">
             </div>
         </main>
         <Footer></Footer>

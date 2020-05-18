@@ -3,80 +3,55 @@
         <h1 class='section-header'>SKILLS</h1>
         <h2 class='section-description'>Languages, Frameworks & Libraries</h2>
         <div class="skills-container">
-            <div class="skill">
-                <p class='skills-description'>Front End</p>
-                <div class='skills-images-container'>
-                    <div class='skill-container'>
-                        <img src="@/assets/html.png" alt="HTML5">
-                        <p>HTML5</p>
-                    </div>
-                    <div class='skill-container'>
-                        <img class='skill-image' src="@/assets/css.png" alt="CSS3">
-                        <p>CSS3</p>
-                    </div>
-                    <div class='skill-container'>
-                        <img class='skill-image' src="@/assets/js.png" alt="JavaScript">
-                        <p>JavaScript</p>
-                    </div>
-                    <div class='skill-container'>
-                        <img class='skill-image' src="@/assets/vue.png" alt="Vue.js">
-                        <p>Vue.js</p>
-                    </div>
-                    <div class='skill-container'>
-                        <img class='skill-image' src="@/assets/nuxt.png" alt="Nuxt.js">
-                        <p>Nuxt.js</p>
-                    </div>
-                    <div class='skill-container'>
-                        <img class='skill-image' src="@/assets/jquery.png" alt="jQuery">
-                        <p>jQuery</p>
-                    </div>
-                </div>
-            </div>
-            <div class="skill">
-                <p class='skills-description'>Back End</p>
-                <div class='skills-images-container'>
-                    <div class='skill-container'>
-                        <img src="@/assets/php.png" alt="PHP">
-                        <p>PHP</p>
-                    </div>
-                    <div class='skill-container'>
-                        <img src="@/assets/laravel.png" alt="Laravel">
-                        <p>Laravel</p>
-                    </div>
-                    <div class='skill-container'>
-                        <img src="@/assets/mysql.png" alt="MySQL">
-                        <p>MySQL</p>
-                    </div>
-                    <div class='skill-container'>
-                        <img src="@/assets/node.png" alt="Node.js">
-                        <p>Node.js</p>
-                    </div>
-                </div>
-            </div>
-            <div class="skill">
-                <p class='skills-description'>Tools</p>
-                <div class='skills-images-container'>
-                    <div class='skill-container'>
-                        <img src="@/assets/photoshop.svg" alt="Photoshop">
-                        <p>Photoshop</p>
-                    </div>
-                    <div class='skill-container'>
-                        <img src="@/assets/github.svg" alt="GitHub">
-                        <p>GitHub</p>
-                    </div>
-                    <div class='skill-container'>
-                        <img src="@/assets/npm.png" alt="Npm">
-                        <p>Npm</p>
-                    </div>
-                    <div class='skill-container'>
-                        <img src="@/assets/composer.png" alt="Composer">
-                        <p>Composer</p>
+            <div v-for='technology in technologies' class="skill">
+                <p class='skills-description'>{{ technology.type }}</p>
+                <div class="skills-container">
+                    <div v-for='skill in technology.skills' class="skill-container">
+                        <img :src='require("@/assets/technologies/" + skill.file + "." + skill.extension)' :alt="skill.name">
+                        <p>{{ skill.name }}</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </template>
+
+<script>
+export default {
+    data(){
+        return {
+            technologies: [
+                {   type: 'Front End',
+                    skills: [
+                        { name: 'HTML5', file: 'html', extension: 'png' },
+                        { name: 'CSS3', file: 'css', extension: 'png' },
+                        { name: 'JavaScript', file: 'js', extension: 'png' },
+                        { name: 'Vue.js', file: 'vue', extension: 'png' },
+                        { name: 'Nuxt.js', file: 'nuxt', extension: 'png' },
+                        { name: 'jQuery', file: 'jquery', extension: 'png' }
+                    ]
+                },
+                {   type: 'Back End',
+                    skills: [
+                        { name: 'PHP', file: 'php', extension: 'png' },
+                        { name: 'Laravel', file: 'laravel', extension: 'png' },
+                        { name: 'MySQL', file: 'mysql', extension: 'png' },
+                        { name: 'Node.js', file: 'node', extension: 'png' }
+                    ]
+                },
+                {   type: 'Tools',
+                    skills: [
+                        { name: 'GitHub', file: 'github', extension: 'svg' },
+                        { name: 'Photoshop', file: 'photoshop', extension: 'svg' },
+                        { name: 'NPM', file: 'npm', extension: 'png' },
+                        { name: 'Composer', file: 'composer', extension: 'png' }
+                    ]
+                },
+            ]
+        }
+    }
+}
+</script>
 
 <style lang="css" scoped>
 .skills {

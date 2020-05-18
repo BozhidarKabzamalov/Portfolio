@@ -11,13 +11,13 @@
                 </p>
                 <p class='project-skills'>Languages, Frameworks & Libraries</p>
                 <div class='skills-container'>
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/html.png" alt="HTML5">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/css.png" alt="CSS3">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/js.png" alt="JavaScript">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/jquery.png" alt="jQuery">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/php.png" alt="PHP">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/laravel.png" alt="Laravel">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/mysql.png" alt="MySQL">
+                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/html.png" alt="HTML5">
+                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/css.png" alt="CSS3">
+                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/js.png" alt="JavaScript">
+                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/jquery.png" alt="jQuery">
+                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/php.png" alt="PHP">
+                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/laravel.png" alt="Laravel">
+                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/mysql.png" alt="MySQL">
                     </div>
                 <div class="buttons flex">
                     <a class='live-site' href="http://art.kabzamalov.com/"><img src="@/assets/external.svg" alt="Visit Site">Visit Site</a>
@@ -28,12 +28,14 @@
                     </div>
             </div>
             <div class="image-container">
-                <img class='project-image' src="@/assets/artshare/art1.jpg" alt="Landing Page">
+                <img class='project-image' src="@/assets/projects/artshare/1.png" alt="Landing Page">
+                <img class='project-image' src="@/assets/projects/artshare/2.png" alt="Landing Page">
+                <img class='project-image' src="@/assets/projects/artshare/3.png" alt="Landing Page">
             </div>
             <div class="project-specifications">
                 <p>
                     The application utilizes the Model-View-Controller architecture which separates the application into three parts - model, view and controller.
-                    The MVC architecture is used because it provides many benefits like:
+                    The MVC architecture is employed because it provides a large number of benefits like:
                 </p>
                 <ul>
                     <li>Separation of concerns</li>
@@ -42,12 +44,23 @@
                     <li>Fast development process</li>
                     <li>Possibility for parallel work on different modules</li>
                 </ul>
-            </div>
-            <div class="image-container">
-                <img class='project-image' src="@/assets/artshare/art2.jpg" alt="Landing Page">
-            </div>
-            <div class="image-container">
-                <img class='project-image' src="@/assets/artshare/art3.jpg" alt="Landing Page">
+                <p class='bold'>Front-end responsibilities:</p>
+                <ul>
+                    <li>Neatly present data to the users</li>
+                    <li>Add interactivity to the application through JavaScript</li>
+                    <li>Make AJAX requests in order to send and retrieve data from the back-end</li>
+                </ul>
+                <p class='bold'>Back-end responsibilities:</p>
+                <ul>
+                    <li>Create, read, update and delete data</li>
+                    <li>Store information inside the database</li>
+                    <li>Execute MySQL queries</li>
+                    <li>Deal with user authentication and user roles</li>
+                    <li>Validate data</li>
+                    <li>Handle file uploads</li>
+                    <li>Deal with image handling and manipulation</li>
+                    <li>Handle routing</li>
+                </ul>
             </div>
         </main>
         <Footer></Footer>
@@ -63,6 +76,7 @@ export default {
     },
     data(){
         return {
+            slideIndex: 1,
             hover: false,
             eOffsetTop: null,
             eOffsetLeft: null,
@@ -82,7 +96,40 @@ export default {
             this.eOffsetTop = eOffsetTop + height + 10
             this.eOffsetLeft = eOffsetLeft + width/2
             this.alt = e.target.alt
+        },
+        showSlides(index) {
+            let slides = document.getElementsByClassName("project-image");
+            let thumbnails = document.getElementsByClassName("project-image-thumbnail")
+
+            if (index > slides.length) {
+                this.slideIndex = 1
+            }
+
+            if (index < 1) {
+                this.slideIndex = slides.length
+            }
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (let i = 0; i < thumbnails.length; i++) {
+                thumbnails[i].className = thumbnails[i].className.replace(" active", "");
+            }
+
+            slides[this.slideIndex-1].style.display = "block";
+            thumbnails[this.slideIndex-1].className += " active";
+
+        },
+        selectSlide(index) {
+            this.showSlides(this.slideIndex = index);
         }
+    },
+    mounted(){
+        this.showSlides(this.slideIndex);
+
+        setInterval(function(){
+            console.log('hello')
+        }, 5000)
     }
 }
 </script>
@@ -127,7 +174,7 @@ export default {
         margin-bottom: 20px;
     }
     .project-image {
-        display: block;
+        display: none;
         width: 100%;
         height: 100%;
     }
@@ -219,6 +266,8 @@ export default {
         background-color: #0d93de;
         transform: scale(1.05);
     }
+
+
     @media (max-width: 900px) {
         .project-specifications, .project-info {
             padding: 20px 10px;

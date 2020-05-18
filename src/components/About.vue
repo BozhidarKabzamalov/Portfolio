@@ -81,22 +81,23 @@ export default {
     padding: 10px 0 10px 0;
     position: relative;
 }
-.links a:after{
+.links a:after {
+    background: rgba(0, 0, 0, 0.8);
     content: '';
     position: absolute;
-    width: 0; height: 3px;
+    width: 0;
+    height: 4px;
     display: block;
     margin-top: 25px;
-    right: 0;
-    background: #fff;
-    transition: width .2s ease;
-    -webkit-transition: width .3s ease;
+    left: 0;
+    right: 100%;
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
 }
-
 .links a:hover:after{
     width: 100%;
     left: 0;
-    background: rgba(0, 0, 0, 0.8);
+    right: 0;
 }
 .links a img {
     width: 30px;

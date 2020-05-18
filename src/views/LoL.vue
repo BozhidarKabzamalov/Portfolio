@@ -10,13 +10,13 @@
                 </p>
                 <p class='project-skills'>Languages, Frameworks & Libraries</p>
                 <div class='skills-container'>
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/html.png" alt="HTML5">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/css.png" alt="CSS3">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/js.png" alt="JavaScript">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/vue.png" alt="Vue.js">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/php.png" alt="PHP">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/laravel.png" alt="Laravel">
-                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/mysql.png" alt="MySQL">
+                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/html.png" alt="HTML5">
+                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/css.png" alt="CSS3">
+                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/js.png" alt="JavaScript">
+                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/vue.png" alt="Vue.js">
+                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/php.png" alt="PHP">
+                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/laravel.png" alt="Laravel">
+                        <img @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' src="@/assets/technologies/mysql.png" alt="MySQL">
                     </div>
                 <div class="buttons flex">
                     <a class='live-site' href="http://lol.kabzamalov.com"><img src="@/assets/external.svg" alt="Visit Site">Visit Site</a>
@@ -28,7 +28,7 @@
                     </div>
             </div>
             <div class="image-container">
-                <img class='project-image' src="@/assets/leagueofstats/lol1.jpg" alt="Landing Page">
+                <img class='project-image' src="@/assets/projects/leagueofstats/1.png" alt="Landing Page">
             </div>
             <div class="project-specifications">
                 <p class='project-description'>
@@ -55,14 +55,9 @@
                     <li>Store the API responses inside the database</li>
                     <li>Obfuscate Riot Games's API key</li>
                 </ul>
-                <p class='bold'>Overcome challenges:</p>
-                <ul>
-                    <li>Working with a complex third party API which has considerable amount of endpoints and thousands of properties</li>
-                    <li>Designing a simple, intuitive and easy to use user interface for a complex API</li>
-                </ul>
             </div>
             <div class="image-container">
-                <img class='project-image' src="@/assets/leagueofstats/lol2.jpg" alt="Landing Page">
+                <img class='project-image' src="@/assets/projects/leagueofstats/2.png" alt="Landing Page">
             </div>
         </main>
         <Footer></Footer>
