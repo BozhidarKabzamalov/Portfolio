@@ -55,11 +55,6 @@
               "name":"2",
               "extension":"png",
               "folder":"leagueofstats"
-            },
-            {
-              "name":"3",
-              "extension":"png",
-              "folder":"leagueofstats"
             }
       ],
       "url":"http://lol.kabzamalov.com",
@@ -187,11 +182,6 @@
             },
             {
               "name":"2",
-              "extension":"png",
-              "folder":"runeterra"
-            },
-            {
-              "name":"3",
               "extension":"png",
               "folder":"runeterra"
             }

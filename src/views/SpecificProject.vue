@@ -2,15 +2,15 @@
     <div>
         <main class='wrapper'>
             <div class='project-info'>
-                <h1 class='project-title'>{{ project.title }}</h1>
-                <p class='project-description'>{{ project.description }}</p>
+                <h1 class='project-title'>{{ specificProject.title }}</h1>
+                <p class='project-description'>{{ specificProject.description }}</p>
                 <p class='project-skills'>Languages, Frameworks & Libraries</p>
                 <div class='skills-container'>
-                    <img v-for='technology in project.technologies' @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' :src='require("@/assets/technologies/" + technology.name + "." + technology.extension)' :alt="technology.alt">
+                    <img v-for='technology in specificProject.technologies' @mouseover='displayAlt' @mouseleave='hover = false' class='skill-image' :src='require("@/assets/technologies/" + technology.name + "." + technology.extension)' :alt="technology.alt">
                 </div>
                 <div class="buttons flex">
-                    <a class='live-site' :href="project.url" target="_blank"><img src="@/assets/external.svg" alt="Visit Site">Visit Site</a>
-                    <a v-for='repo in project.repository' class='github' href="https://github.com/BozhidarKabzamalov/League-Of-Legends-Frontend" target="_blank">
+                    <a class='live-site' :href="specificProject.url" target="_blank"><img src="@/assets/external.svg" alt="Visit Site">Visit Site</a>
+                    <a v-for='repo in specificProject.repository' class='github' href="https://github.com/BozhidarKabzamalov/League-Of-Legends-Frontend" target="_blank">
                         <img src="@/assets/github-white.svg" alt="GitHub">{{ repo.type }} Repository
                     </a>
                 </div>
@@ -19,9 +19,9 @@
                 </div>
             </div>
             <div class="image-container">
-                <img v-for='image in project.images' class='project-image' :src='require("@/assets/projects/" + image.folder + "/" + image.name + "." + image.extension)' alt="Landing Page">
+                <img v-for='(image, index) in specificProject.images' v-if='index == currentImage' :class='[ index == currentImage ? "active" : "inactive", "project-image"]' :src='require("@/assets/projects/" + image.folder + "/" + image.name + "." + image.extension)' alt="Landing Page">
             </div>
-            <div v-if='project.title == "ArtShare"' class="project-specifications">
+            <div v-if='specificProject.title == "ArtShare"' class="project-specifications">
                 <p>
                     The application utilizes the Model-View-Controller architecture which separates the application into three parts - model, view and controller.
                     The MVC architecture is employed because it provides a large number of benefits like:
@@ -51,7 +51,7 @@
                     <li>Handle routing</li>
                 </ul>
             </div>
-            <div v-else-if='project.title == "Legends Of Runeterra"' class="project-specifications">
+            <div v-else-if='specificProject.title == "Legends Of Runeterra"' class="project-specifications">
                 <p class='project-description'>
                     The application consists of a Vue.js front-end which draws information from a JSON file and then displays the information in a user-friendly manner.
                 </p>
@@ -61,7 +61,7 @@
                 </p>
                 <p>The application is completely responsive as a result of the use of CSS3 media queries.</p>
             </div>
-            <div v-else-if='project.title == "League Of Stats"' class="project-specifications">
+            <div v-else-if='specificProject.title == "League Of Stats"' class="project-specifications">
                 <p class='project-description'>
                     The application consists of a Vue.js front-end and PHP (Laravel) back-end
                     which are separated from each other. Separating the front-end from the
@@ -87,7 +87,7 @@
                     <li>Obfuscate Riot Games's API key</li>
                 </ul>
             </div>
-            <div v-else-if='project.title == "Travel Diary"' class="project-specifications">
+            <div v-else-if='specificProject.title == "Travel Diary"' class="project-specifications">
                 <p class='project-description'>
                     The application consists of a Vue.js front-end and PHP (Laravel) back-end
                     which are separated from each other. Separating the front-end from the
@@ -134,11 +134,13 @@ export default {
     },
     data(){
         return {
+            projectName: this.$route.params.projectName,
             projects: projectsJson,
             hover: false,
             eOffsetTop: null,
             eOffsetLeft: null,
-            alt: null
+            alt: null,
+            currentImage: 0
         }
     },
     methods: {
@@ -155,6 +157,23 @@ export default {
             this.eOffsetLeft = eOffsetLeft + width/2
             this.alt = e.target.alt
         }
+    },
+    computed: {
+        specificProject(){
+            return this.projects.find((project) => {
+                return project.subpage == this.projectName
+            })
+        }
+    },
+    mounted(){
+        setInterval(() => {
+            this.currentImage += 1;
+
+            if (this.currentImage >= this.specificProject.images.length) {
+                this.currentImage = 0
+            }
+            console.log(this.currentImage)
+        }, 5000);
     }
 }
 </script>
